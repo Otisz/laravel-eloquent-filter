@@ -1,0 +1,25 @@
+dist: xenial
+language: php
+
+php:
+  - 7.1
+  - 7.2
+  - 7.3
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+env:
+  matrix:
+    - SETUP="--prefer-lowest"
+    - SETUP=""
+
+before_install:
+  - travis_retry composer global require hirak/prestissimo
+
+install:
+  - travis_retry composer update ${SETUP} --no-interaction --prefer-source
+
+script:
+  - vendor/bin/phpunit --coverage-text

@@ -1,0 +1,39 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Http\Request;
+use Otisz\EloquentFilter\Filter;
+
+/**
+ * @property \Illuminate\Database\Eloquent\Builder $builder
+ * @method static DummyNamespace\DummyClass boot($class)
+ * @method \Illuminate\Contracts\Pagination\LengthAwarePaginator paginate($perPage = null, $columns = ['*'], $pageName = 'page', $page = null)
+ * @method \Illuminate\Database\Eloquent\Collection get(array $columns = ['*'])
+ * @method \Illuminate\Database\Eloquent\Builder getBuilder()
+ * @method void dd()
+ * @method \Illuminate\Database\Eloquent\Builder dump()
+ * @method string qualifyColumn($column)
+ */
+final class DummyClass extends Filter
+{
+    /**
+     * @param  \Illuminate\Http\Request  $request
+     *
+     * @return self
+     */
+    public function where(Request $request)
+    {
+        //
+    }
+
+    /**
+     * @param  \Illuminate\Http\Request  $request
+     *
+     * @return self
+     */
+    public function orderBy(Request $request)
+    {
+        //
+    }
+}
