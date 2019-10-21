@@ -1,4 +1,4 @@
-# Laravel Imgix
+# Laravel Eloquent Filter
 
 [![Latest Version on Packagist][shield-packagist]][link-packagist]
 [![Software License][shield-license]](LICENSE.md)
@@ -47,7 +47,6 @@ use Otisz\EloquentFilter\Filter;
  * @method \Illuminate\Database\Eloquent\Builder getBuilder()
  * @method void dd()
  * @method \Illuminate\Database\Eloquent\Builder dump()
- * @method string qualifyColumn($column)
  */
 final class TestFilter extends Filter
 {

@@ -13,27 +13,30 @@ use Otisz\EloquentFilter\Filter;
  * @method \Illuminate\Database\Eloquent\Builder getBuilder()
  * @method void dd()
  * @method \Illuminate\Database\Eloquent\Builder dump()
- * @method string qualifyColumn($column)
  */
 final class DummyClass extends Filter
 {
     /**
      * @param  \Illuminate\Http\Request  $request
      *
-     * @return self
+     * @return $this
      */
     public function where(Request $request)
     {
         //
+
+        return $this;
     }
 
     /**
      * @param  \Illuminate\Http\Request  $request
      *
-     * @return self
+     * @return $this
      */
     public function orderBy(Request $request)
     {
         //
+
+        return $this;
     }
 }
