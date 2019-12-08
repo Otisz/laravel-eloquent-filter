@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use InvalidArgumentException;
-use Otisz\EloquentFilter\Traits\EloquentFunctions;
+
+/*
+ * @mixin \Illuminate\Database\Eloquent\Builder
+ */
 
 abstract class Filter
 {
-    use EloquentFunctions;
-
     /**
      * @var \Illuminate\Database\Eloquent\Builder
      */
@@ -33,18 +34,18 @@ abstract class Filter
     }
 
     /**
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request|null  $request
      *
      * @return self
      */
-    abstract public function where(Request $request);
+    abstract public function search(Request $request = null);
 
     /**
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request|null  $request
      *
      * @return self
      */
-    abstract public function orderBy(Request $request);
+    abstract public function order(Request $request = null);
 
     /**
      * @param  \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|string  $class
@@ -74,5 +75,10 @@ abstract class Filter
     public function getBuilder()
     {
         return $this->builder;
+    }
+
+    public function __call($name, $arguments)
+    {
+        return $this->builder->$name(...$arguments);
     }
 }
