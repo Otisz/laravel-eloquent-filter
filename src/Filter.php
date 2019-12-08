@@ -7,16 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use InvalidArgumentException;
 
-/*
- * @mixin \Illuminate\Database\Eloquent\Builder
- */
-
 abstract class Filter
 {
     /**
      * @var \Illuminate\Database\Eloquent\Builder
      */
-    private $builder;
+    public $builder;
 
     /**
      * @var array
@@ -67,14 +63,6 @@ abstract class Filter
         }
 
         throw new InvalidArgumentException(sprintf('Unable to load %s', Builder::class));
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function getBuilder()
-    {
-        return $this->builder;
     }
 
     public function __call($name, $arguments)

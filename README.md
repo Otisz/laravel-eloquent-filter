@@ -42,37 +42,33 @@ use Otisz\EloquentFilter\Filter;
 /**
  * @property \Illuminate\Database\Eloquent\Builder $builder
  * @method static \App\Filters\TestFilter boot($class)
- * @method \Illuminate\Contracts\Pagination\LengthAwarePaginator paginate($perPage = null, $columns = ['*'], $pageName = 'page', $page = null)
- * @method \Illuminate\Database\Eloquent\Collection get(array $columns = ['*'])
- * @method \Illuminate\Database\Eloquent\Builder getBuilder()
- * @method void dd()
- * @method \Illuminate\Database\Eloquent\Builder dump()
+ * @mixin \Illuminate\Database\Eloquent\Builder
  */
 final class TestFilter extends Filter
 {
     /**
-     * @param  \Illuminate\Http\Request  $request
-     *
-     * @return $this
-     */
-    public function where(Request $request)
-    {
-        //
-
-        return $this;
-    }
-
-    /**
-     * @param  \Illuminate\Http\Request  $request
-     *
-     * @return $this
-     */
-    public function orderBy(Request $request)
-    {
-        //
-
-        return $this;
-    }
+         * @param  \Illuminate\Http\Request|null  $request
+         *
+         * @return self
+         */
+        public function search(Request $request = null)
+        {
+            //
+    
+            return $this;
+        }
+    
+        /**
+         * @param  \Illuminate\Http\Request|null  $request
+         *
+         * @return self
+         */
+        public function order(Request $request = null)
+        {
+            //
+    
+            return $this;
+        }
 }
 
 ```
@@ -81,54 +77,34 @@ final class TestFilter extends Filter
 
 There is 3 ways to boot up filter class:
 
-- From Eloquent Builder:
-
 ```php
+// Eloquent Builder:
 TestFilter::boot(Model::query());
-```
+TestFilter::boot(Model::where('column', '=', 1));
 
-Note: You can "hide" everything in filter class, but you can pass through a pre-defined builder.
-
-```php
-$builder = Model::where('column', '=', 1);
-TestFilter::boot($builder);
-```
-
-- From namespace:
-
-```php
+// Namespace
 TestFilter::boot(Model::class);
-```
 
-- From model:
-
-```php
+// Model
 TestFilter::boot(new Model);
 ```
 
-After boot up you can chain `where()` and `orderBy()` methods. \
-These methods requires `\Illuminate\Http\Request` (compatible with `\Illuminate\Foundation\Http\FormRequest`) as parameter.
+Filter class contains 2 methods: `search()` and `order()`. \
+You can pass `\Illuminate\Http\Request` or `\Illuminate\Foundation\Http\FormRequest` to these methods, but not required.
 
 ```php
-TestFilter::boot(Model::query())->where($request)->orderBy($request);
+TestFilter::boot(Model::class)->search()->order();
 ```
 
-You call some Eloquent Builder method through filter class:
+If you call a method that is not defined in the filter class, it will automatically call the Builder class.
 
-- `->get($columns = ['*']): \Illuminate\Database\Eloquent\Collection|static[]`
-- `->first($columns = ['*']): \Illuminate\Database\Eloquent\Model|object|static|null`
-- `->exists(): bool`
-- `->dd(): void`
-- `->dump(): \Illuminate\Database\Eloquent\Builder`
-- `->paginate($perPage = null, $columns = ['*'], $pageName = 'page', $page = null): \Illuminate\Contracts\Pagination\LengthAwarePaginator`
+For example filter class does not have `toSql()` method:
+`TestFilter::boot(Model::class)->toSql();`
 
-Or write your method if needed.
+In this case, `toSql()` method called on Builder class: `$this->builder->toSql()`
 
-## Testing
+> Feel free write your method if needed.
 
-``` bash
-$ composer test
-```
 
 ## Contributing
 

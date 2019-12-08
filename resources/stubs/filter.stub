@@ -7,7 +7,8 @@ use Otisz\EloquentFilter\Filter;
 
 /**
  * @property \Illuminate\Database\Eloquent\Builder $builder
- * @method static DummyNamespace\DummyClass boot($class)
+ * @method static \DummyNamespace\DummyClass boot($class)
+ * @mixin \Illuminate\Database\Eloquent\Builder
  */
 final class DummyClass extends Filter
 {
@@ -16,7 +17,7 @@ final class DummyClass extends Filter
      *
      * @return self
      */
-    public function where(Request $request = null)
+    public function search(Request $request = null)
     {
         //
 
@@ -28,7 +29,7 @@ final class DummyClass extends Filter
      *
      * @return self
      */
-    public function orderBy(Request $request = null)
+    public function order(Request $request = null)
     {
         //
 
