@@ -2,7 +2,6 @@
 
 [![Latest Version on Packagist][shield-packagist]][link-packagist]
 [![Software License][shield-license]](LICENSE.md)
-[![Build Status][shield-travis]][link-travis]
 [![Total Downloads][shield-downloads]][link-packagist]
 
 Laravel package for generating flexible Eloquent filters.
@@ -10,9 +9,9 @@ Laravel package for generating flexible Eloquent filters.
 ## Dependencies 
 
 - [PHP](https://secure.php.net): ^7.1
-- [illuminate/database](https://github.com/illuminate/database): ~5.7.0|~5.8.0|^6.0
-- [illuminate/http](https://github.com/illuminate/http): ~5.7.0|~5.8.0|^6.0
-- [illuminate/support](https://github.com/illuminate/support): ~5.7.0|~5.8.0|^6.0
+- [illuminate/database](https://github.com/illuminate/database): ^5.7|^5.8|^6.0|^7.0
+- [illuminate/http](https://github.com/illuminate/http): ^5.7|^5.8|^6.0|^7.0
+- [illuminate/support](https://github.com/illuminate/support): ^5.7|^5.8|^6.0|^7.0
 
 ## Install
 
@@ -46,7 +45,7 @@ use Otisz\EloquentFilter\Filter;
  */
 final class TestFilter extends Filter
 {
-    /**
+        /**
          * @param  \Illuminate\Http\Request|null  $request
          *
          * @return self
@@ -75,7 +74,7 @@ final class TestFilter extends Filter
 
 ###How to use in your controller:
 
-There is 3 ways to boot up filter class:
+There are 3 ways to boot up filter class:
 
 ```php
 // Eloquent Builder:
@@ -118,8 +117,6 @@ The Laravel Eloquent Filter package is open-source software licensed under the [
 
 [shield-packagist]: https://img.shields.io/packagist/v/otisz/laravel-eloquent-filter.svg?style=flat-square
 [shield-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[shield-travis]: https://img.shields.io/travis/Otisz/laravel-eloquent-filter.svg?style=flat-square
 [shield-downloads]: https://img.shields.io/packagist/dt/otisz/laravel-eloquent-filter.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/otisz/laravel-eloquent-filter
-[link-travis]: https://travis-ci.org/Otisz/laravel-eloquent-filter
