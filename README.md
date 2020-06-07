@@ -72,7 +72,7 @@ final class TestFilter extends Filter
 
 ```
 
-###How to use in your controller:
+### How to use in your controller:
 
 There are 3 ways to boot up filter class:
 
