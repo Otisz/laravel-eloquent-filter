@@ -8,10 +8,10 @@ Laravel package for generating flexible Eloquent filters.
 
 ## Dependencies 
 
-- [PHP](https://secure.php.net): ^7.1
-- [illuminate/database](https://github.com/illuminate/database): ^5.7|^5.8|^6.0|^7.0
-- [illuminate/http](https://github.com/illuminate/http): ^5.7|^5.8|^6.0|^7.0
-- [illuminate/support](https://github.com/illuminate/support): ^5.7|^5.8|^6.0|^7.0
+- [PHP](https://secure.php.net): ^7.3
+- [illuminate/database](https://github.com/illuminate/database): ^6.0 | ^7.0 | ^8.0
+- [illuminate/http](https://github.com/illuminate/http): ^6.0 | ^7.0 | ^8.0
+- [illuminate/support](https://github.com/illuminate/support): ^6.0 | ^7.0 | ^8.0
 
 ## Install
 
