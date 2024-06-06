@@ -10,7 +10,7 @@ Laravel package for generating flexible Eloquent filters.
 
 You can install the package via [Composer](https://getcomposer.org/)
 ```bash
-$ composer require otisz/laravel-eloquent-filter
+composer require otisz/laravel-eloquent-filter
 ```
     
 ## Usage
@@ -18,7 +18,7 @@ $ composer require otisz/laravel-eloquent-filter
 Use the artisan command to create a new filter class:
 
 ```bash
-$ php artisan make:filter TestFilter
+php artisan make:filter TestFilter
 ```
 
 This command generates a new filter class to `app/Filters` folder:
